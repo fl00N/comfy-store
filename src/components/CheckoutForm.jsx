@@ -53,11 +53,30 @@ export const action =
 
 const CheckoutForm = () => {
   return (
-    <Form method="POST" className="flex flex-col gap-y-4">
-      <h4 className="font-medium text-xl">Shipping Information</h4>
-      <FormInput label="first name" name="name" type="text" />
-      <FormInput label="address" name="address" type="text" />
-      <div className="mt-4">
+    <Form
+      method="POST"
+      className="rounded-3xl border border-base-300 bg-base-100 p-6 shadow-xl sm:p-8"
+    >
+      <div className="mb-8 border-b border-base-300 pb-6">
+        <p className="text-sm font-bold uppercase tracking-[0.35em] text-primary">
+          checkout
+        </p>
+
+        <h4 className="mt-3 text-2xl font-black tracking-tight sm:text-3xl">
+          Shipping Information
+        </h4>
+
+        <p className="mt-2 text-sm text-base-content/60">
+          Enter your details below to complete your order.
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-y-5">
+        <FormInput label="first name" name="name" type="text" />
+        <FormInput label="address" name="address" type="text" />
+      </div>
+
+      <div className="mt-8">
         <SubmitBtn text="Place Your Order" />
       </div>
     </Form>

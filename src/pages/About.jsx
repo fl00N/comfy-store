@@ -1,25 +1,27 @@
 const About = () => {
   return (
-    <>
-      <div className="flex flex-wrap gap-2 sm:gap-x-6 items-center justify-center">
-        <h1 className="text-4xl font-bold leading-none tracking-tight sm:text-6xl ">
-          We love
-        </h1>
-        <div className="stats bg-primary shadow">
-          <div className="stat">
-            <div className="stat-title text-primary-content text-4xl font-bold tracking-widest">
+    <section className="pb-20">
+      <div className="mx-auto max-w-4xl rounded-3xl border border-base-300 bg-base-200/70 px-6 py-16 text-center shadow-sm sm:px-10">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-x-6">
+          <h1 className="text-4xl font-black leading-none tracking-tight sm:text-6xl">
+            We love
+          </h1>
+
+          <div className="rounded-3xl bg-primary px-6 py-3 shadow-xl transition duration-300 hover:scale-105 sm:px-8">
+            <span className="text-4xl font-black tracking-widest text-primary-content sm:text-6xl">
               comfy
-            </div>
+            </span>
           </div>
         </div>
+
+        <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-base-content/70">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic veniam
+          odit, officiis eos mollitia alias, doloremque, aspernatur ratione
+          asperiores voluptas labore minus dolores reprehenderit corporis quos.
+          Assumenda molestias harum dignissimos?
+        </p>
       </div>
-      <p className="mt-6 text-lg leading-8 max-w-2xl mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic veniam
-        odit, officiis eos mollitia alias, doloremque, aspernatur ratione
-        asperiores voluptas labore minus dolores reprehenderit corporis quos.
-        Assumenda molestias harum dignissimos?
-      </p>
-    </>
+    </section>
   );
 };
 export default About;

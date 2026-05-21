@@ -1,11 +1,7 @@
 import { toast } from "react-toastify";
 import { redirect, useLoaderData } from "react-router";
 import { customFetch } from "../utils/index";
-import {
-  ComplexPaginationContainer,
-  OrdersList,
-  SectionTitle,
-} from "../components";
+import { OrdersList, PaginationContainer, SectionTitle } from "../components";
 
 const ordersQuery = (user, params) => {
   return {
@@ -58,7 +54,7 @@ const Orders = () => {
     <div>
       <SectionTitle text={"Your Orders"} />
       <OrdersList />
-      <ComplexPaginationContainer />
+      <PaginationContainer />
     </div>
   );
 };

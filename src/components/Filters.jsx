@@ -6,7 +6,8 @@ const Filters = () => {
   const { search, companies, categories, price, order, shipping } = params;
 
   return (
-    <Form className="bg-base-200 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center">
+    <Form className="grid items-end gap-x-6 gap-y-8 rounded-3xl border border-base-300 bg-base-200/70 px-6 py-8 shadow-sm backdrop-blur sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      {" "}
       <FormInput
         label="search product"
         type="search"
@@ -14,7 +15,6 @@ const Filters = () => {
         defaultValue={search}
         size="input-sm"
       />
-
       <FormSelect
         label="companies"
         name="companies"
@@ -22,7 +22,6 @@ const Filters = () => {
         defaultValue={companies}
         size="select-sm"
       />
-
       <FormSelect
         label="categories"
         name="categories"
@@ -30,7 +29,6 @@ const Filters = () => {
         defaultValue={categories}
         size="select-sm"
       />
-
       <FormSelect
         label="sort by"
         name="order"
@@ -38,25 +36,28 @@ const Filters = () => {
         defaultValue={order}
         size="select-sm"
       />
-
       <FormRange
         label="select price"
         name="price"
         size="range-sm"
         price={price}
       />
-
       <FormCheckbox
         label="free shipping"
         name="shipping"
         size="checkbox-sm"
         defaulValue={shipping}
       />
-
-      <button type="submit" className="btn btn-primary btn-sm ">
+      <button
+        type="submit"
+        className="btn btn-primary btn-sm rounded-full font-bold uppercase tracking-wide shadow-md transition duration-300 hover:scale-105"
+      >
         Submit
       </button>
-      <Link to="/products" className="btn btn-accent btn-sm ">
+      <Link
+        to="/products"
+        className="btn btn-accent btn-sm rounded-full font-bold uppercase tracking-wide shadow-md transition duration-300 hover:scale-105"
+      >
         Reset
       </Link>
     </Form>

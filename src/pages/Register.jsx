@@ -22,33 +22,53 @@ export const action = async ({ request }) => {
 
 const Register = () => {
   return (
-    <section className="h-screen grid place-items-center">
+    <section className="grid min-h-screen place-items-center bg-linear-to-br from-base-200 via-base-100 to-primary/10 px-4 py-12">
       <Form
-        action={action}
         method="POST"
-        className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
+        className="w-full max-w-md rounded-3xl border border-base-300 bg-base-100/90 p-8 shadow-2xl backdrop-blur"
       >
-        <h4 className="text-center text-3xl font-bold">Register</h4>
+        <div className="mb-8 text-center">
+          <p className="text-sm font-bold uppercase tracking-[0.35em] text-primary">
+            join us
+          </p>
 
-        <FormInput label="username" name="username" type="text" />
-        <FormInput label="email" name="email" type="email" />
-        <FormInput label="password" name="password" type="password" />
+          <h4 className="mt-3 text-4xl font-black tracking-tight">
+            Create Account
+          </h4>
 
-        <div className="mt-4">
-          <SubmitBtn text={"Register"} />
+          <p className="mt-3 text-sm text-base-content/60">
+            Sign up to start shopping your favorite products.
+          </p>
         </div>
 
-        <p className="text-center">
-          Alredy a member?
-          <Link to="/login" className="ml-2 link link-hover link-primary">
-            Login
-          </Link>
-        </p>
-        <p className="text-center">
-          <Link to="/" className="ml-2 link link-hover ">
+        <div className="flex flex-col gap-y-5">
+          <FormInput label="username" name="username" type="text" />
+          <FormInput label="email" name="email" type="email" />
+          <FormInput label="password" name="password" type="password" />
+        </div>
+
+        <div className="mt-8">
+          <SubmitBtn text="Register" />
+        </div>
+
+        <div className="mt-8 space-y-4 text-center text-sm">
+          <p className="text-base-content/70">
+            Already a member?
+            <Link
+              to="/login"
+              className="ml-2 font-bold text-primary transition duration-300 hover:text-primary/70"
+            >
+              Login
+            </Link>
+          </p>
+
+          <Link
+            to="/"
+            className="inline-flex font-semibold text-base-content/60 transition duration-300 hover:text-primary"
+          >
             Back to home page
           </Link>
-        </p>
+        </div>
       </Form>
     </section>
   );

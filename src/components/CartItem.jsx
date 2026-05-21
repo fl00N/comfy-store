@@ -17,48 +17,61 @@ const CartItem = ({ cartItem }) => {
   };
 
   return (
-    <article className="mb-12 flex flex-col gap-y-4 sm:flex-row flex-wrap border-b border-base-300 pb-6 last:border-b-0">
+    <article className="grid gap-5 rounded-3xl border border-base-300 bg-base-100 p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:grid-cols-[8rem_1fr_auto] sm:items-center">
       <img
         src={image}
         alt={title}
-        className="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover"
+        className="h-40 w-full rounded-2xl object-cover shadow-md sm:h-32 sm:w-32"
       />
-      <div className="sm:ml-16 sm:w-48">
-        <h3 className="capitalize font-medium">{title}</h3>
-        <h4 className="mt-2 capitalize text-sm text-neutral-content">
+
+      <div>
+        <h3 className="text-lg font-black capitalize tracking-tight">
+          {title}
+        </h3>
+
+        <h4 className="mt-1 text-sm font-semibold capitalize text-base-content/50">
           {company}
         </h4>
-        <p className="mt-4 text-sm capitalize flex items-center gap-x-3">
+
+        <p className="mt-4 flex items-center gap-x-3 text-sm font-medium capitalize text-base-content/70">
           color:
           <span
-            className="badge badge-sm"
+            className="h-5 w-5 rounded-full border border-base-300 shadow-sm"
             style={{ backgroundColor: productColor }}
           ></span>
         </p>
+
+        <button
+          className="mt-4 text-sm font-bold uppercase tracking-wide text-error transition duration-300 hover:text-error/70"
+          onClick={removeItemFromTheCart}
+        >
+          remove
+        </button>
       </div>
-      <div className="sm:ml-12">
-        <div className="form-control max-w-xs">
+
+      <div className="flex items-end justify-between gap-6 sm:flex-col sm:items-end">
+        <div className="form-control w-28">
           <label htmlFor="amount" className="label p-0">
-            <span className="label-text">Amount</span>
+            <span className="label-text text-xs font-bold uppercase tracking-wider text-base-content/60">
+              Amount
+            </span>
           </label>
+
           <select
             name="amount"
             id="amount"
-            className="mt-2 select select-base select-bordered select-xs"
+            className="select select-bordered select-sm mt-2 rounded-full bg-base-200 font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
             value={amount}
             onChange={handleEdit}
           >
             {generateAmountOptions(10)}
           </select>
         </div>
-        <button
-          className="mt-2 link link-primary link-hover text-sm"
-          onClick={removeItemFromTheCart}
-        >
-          remove
-        </button>
+
+        <p className="rounded-full bg-primary/10 px-4 py-2 font-black text-primary">
+          {formatPrice(price)}
+        </p>
       </div>
-      <p className="font-medium sm:ml-auto">{formatPrice(price)}</p>
     </article>
   );
 };

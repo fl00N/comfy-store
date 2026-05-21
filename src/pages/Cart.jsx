@@ -17,37 +17,55 @@ const Cart = () => {
   };
 
   return (
-    <>
-      <div className="flex justify-between border-b border-base-300 pb-5">
-        <p className="text-3xl font-medium tracking-wider capitalize">
-          Shopping cart
-        </p>
+    <section className="pb-20">
+      <div className="rounded-3xl border border-base-300 bg-base-200/70 px-5 py-8 shadow-sm sm:px-8">
+        <div className="flex flex-col gap-4 border-b border-base-300 pb-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.35em] text-primary">
+              your bag
+            </p>
+            <h1 className="mt-3 text-3xl font-black tracking-tight sm:text-5xl">
+              Shopping Cart
+            </h1>
+          </div>
 
-        {/* Make modal after clicking clear cart */}
-        <button className="btn btn-primary" onClick={handleClearCart}>
-          Clear Cart
-        </button>
-      </div>
-
-      <div className="mt-8 grid gap-8 lg:grid-cols-12">
-        <div className="lg:col-span-8">
-          <CartItemList />
+          <button
+            className="btn btn-error btn-outline rounded-full px-6 font-bold uppercase tracking-wide transition duration-300 hover:scale-105"
+            onClick={handleClearCart}
+          >
+            Clear Cart
+          </button>
         </div>
-        <div className="lg:col-span-4 lg:pl-4">
-          <CartTotals />
 
-          {user ? (
-            <Link to="/checkout" className="btn btn-primary btn-block mt-8">
-              Procced to checkout
-            </Link>
-          ) : (
-            <Link to="/login" className="btn btn-primary btn-block mt-8">
-              Please Login
-            </Link>
-          )}
+        <div className="mt-8 grid gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <CartItemList />
+          </div>
+
+          <div className="lg:col-span-4">
+            <div className="sticky top-28">
+              <CartTotals />
+
+              {user ? (
+                <Link
+                  to="/checkout"
+                  className="btn btn-primary btn-block mt-6 rounded-full font-bold uppercase tracking-wide shadow-lg transition duration-300 hover:scale-105"
+                >
+                  Proceed to checkout
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="btn btn-primary btn-block mt-6 rounded-full font-bold uppercase tracking-wide shadow-lg transition duration-300 hover:scale-105"
+                >
+                  Please Login
+                </Link>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

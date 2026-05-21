@@ -15,7 +15,7 @@ export const loader = (queryCLient) => async () => {
 
 const Landing = () => {
   return (
-    <div>
+    <div className="space-y-24">
       <Hero />
       <FeaturedProducts />
     </div>

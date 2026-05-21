@@ -5,7 +5,7 @@ const CartItemList = () => {
   const cartItems = useSelector((state) => state.cartState.cartItems);
 
   return (
-    <div>
+    <div className="space-y-5">
       {cartItems.map((item) => {
         return <CartItem key={item.cartId} cartItem={item} />;
       })}

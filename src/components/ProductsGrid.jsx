@@ -5,7 +5,7 @@ const ProductsGrid = () => {
   const { products } = useLoaderData();
 
   return (
-    <div className="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       {products.map((product) => {
         const { title, price, image } = product.attributes;
         const poundsPrice = formatPrice(price);
@@ -14,18 +14,24 @@ const ProductsGrid = () => {
           <Link
             key={product.id}
             to={`/products/${product.id}`}
-            className="card w-full shadow-xl hover:shadow-2xl transition duration-300"
+            className="card group w-full overflow-hidden rounded-3xl bg-base-100 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
           >
-            <figure className="px-4 pt-4">
+            <figure className="overflow-hidden">
               <img
                 src={image}
                 alt={title}
-                className="rounded-xl h-64 md:h-48 w-full object-cover"
+                className="h-72 w-full object-cover transition duration-500 group-hover:scale-110 md:h-64"
               />
             </figure>
+
             <div className="card-body items-center text-center">
-              <h2 className="card-title capitalize tracking-wider">{title}</h2>
-              <span className="text-primary">{poundsPrice}</span>
+              <h2 className="card-title capitalize tracking-wide transition duration-300 group-hover:text-primary">
+                {title}
+              </h2>
+
+              <span className="rounded-full bg-primary/10 px-4 py-2 font-bold text-primary">
+                {poundsPrice}
+              </span>
             </div>
           </Link>
         );

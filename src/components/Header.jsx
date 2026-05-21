@@ -18,7 +18,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-base py-2 text-base-content">
+    <header className="border-b border-base-300 bg-base-100/80 py-2 text-base-content">
       <div className="align-element flex justify-center sm:justify-end">
         {user ? (
           <div className="flex gap-x-2 sm:gap-x-8 items-center">
