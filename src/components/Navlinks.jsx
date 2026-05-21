@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router";
 
-const Navlinks = () => {
+const NavLinks = () => {
   const user = useSelector((state) => state.userState.user);
   const links = [
     { id: 1, url: "/", text: "home" },
@@ -29,4 +29,4 @@ const Navlinks = () => {
   );
 };
 
-export default Navlinks;
+export default NavLinks;
