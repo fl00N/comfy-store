@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "daisyui/daisyui.css";
+@plugin "../node_modules/daisyui/index.js" {
+  themes: all;
+}
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-6xl px-3;
+  }
+}
