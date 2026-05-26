@@ -9,7 +9,7 @@ const carouselImages = [hero1, hero2, hero3, hero4];
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden rounded-3xl bg-linear-to-br from-base-200 via-base-100 to-primary/10 px-6 py-16 sm:px-10 lg:px-16">
+    <section className="relative">
       <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
       <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-secondary/20 blur-3xl" />
 
