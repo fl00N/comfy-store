@@ -1,5 +1,6 @@
 import { customFetch } from "../utils/index";
 import { Filters, ProductsContainer, PaginationContainer } from "../components";
+import { useNavigation } from "react-router";
 
 const allProductsQuery = (queryParams) => {
   const { search, categories, companies, price, order, shipping, page } =
@@ -33,11 +34,23 @@ export const loader =
   };
 
 const Products = () => {
+  const navigation = useNavigation();
+
+  const isLoading = navigation.state === "loading";
+
   return (
     <>
       <Filters />
       <ProductsContainer />
       <PaginationContainer />
+      {/* {isLoading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <>
+          <ProductsContainer />
+          <PaginationContainer />
+        </>
+      )} */}
     </>
   );
 };

@@ -1,13 +1,28 @@
-import { Form, Link, useLoaderData } from "react-router";
+import { Form, Link, useLoaderData, useSubmit } from "react-router";
 import { FormCheckbox, FormInput, FormRange, FormSelect } from "./";
+import { useRef } from "react";
 
 const Filters = () => {
   const { meta, params } = useLoaderData();
   const { search, companies, categories, price, order, shipping } = params;
+  const submit = useSubmit();
+  const timeoutRef = useRef(null);
+
+  const handleChange = (e) => {
+    const form = e.currentTarget;
+
+    clearTimeout(timeoutRef.current);
+
+    timeoutRef.current = setTimeout(() => {
+      submit(form, { method: "get", replace: true });
+    }, 500);
+  };
 
   return (
-    <Form className="grid items-end gap-x-6 gap-y-8 rounded-3xl border border-base-300 bg-base-200/70 px-6 py-8 shadow-sm backdrop-blur sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {" "}
+    <Form
+      onChange={handleChange}
+      className="grid items-end gap-x-6 gap-y-8 rounded-3xl border border-base-300 bg-base-200/70 px-6 py-8 shadow-sm backdrop-blur sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    >
       <FormInput
         label="search product"
         type="search"
@@ -48,12 +63,7 @@ const Filters = () => {
         size="checkbox-sm"
         defaulValue={shipping}
       />
-      <button
-        type="submit"
-        className="btn btn-primary btn-sm rounded-full font-bold uppercase tracking-wide shadow-md transition duration-300 hover:scale-105"
-      >
-        Submit
-      </button>
+      <div></div>
       <Link
         to="/products"
         className="btn btn-accent btn-sm rounded-full font-bold uppercase tracking-wide shadow-md transition duration-300 hover:scale-105"

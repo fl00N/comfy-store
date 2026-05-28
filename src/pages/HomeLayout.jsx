@@ -1,15 +1,18 @@
-import { Outlet, useNavigation } from "react-router";
+import { Outlet, useLocation, useNavigation } from "react-router";
 import { Navbar, Header, Loading } from "../components";
 
 const HomeLayout = () => {
   const navigation = useNavigation();
+  const location = useLocation();
 
-  const isPageLoading = navigation.state === "loading";
+  const isPageLoading =
+    location.pathname !== "/products" && navigation.state === "loading";
 
   return (
     <>
       <Header />
       <Navbar />
+
       {isPageLoading ? (
         <Loading />
       ) : (
